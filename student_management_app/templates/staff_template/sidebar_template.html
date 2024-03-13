@@ -76,21 +76,27 @@
                 <i class="nav-icon fas fa-envelope-open-text"></i>
                 <p>
                   Apply Leave
-                  {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
+                  {% comment %} <span class="right badge badge-danger">New</span> {% end comment %}
                 </p>
               </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'staff_feedback' %}">
+              <a class="nav-link {% if request.path == staff_feedback %} active {% endif %}" href="{% url 'staff_feedback' %}">
                   <i class="fa fa-fw fa-comments"></i>
+                  <p>
                   Feedback
+                  {% comment %} <span class="right badge badge-danger">New</span> {% end comment %}
+                </p>
               </a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="{% url 'staff_doubt_session' %}">
+              <a href="{{ staff_doubt_session }}" class="nav-link {% if request.path == staff_doubt_session %} active {% endif %}">
                   <i class="fa fa-fw fa-question-circle"></i>
+                 <p>
                   Doubt Session
+                  {% comment %} <span class="right badge badge-danger">New</span> {% endc omment %}
+                </p>
               </a>
           </li>
 
