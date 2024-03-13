@@ -1,0 +1,17 @@
+{% extends 'student_template/base_template.html' %}
+
+{% block page_title %}
+    Doubt Session
+{% endblock page_title %}
+
+{% block main_content %}
+<!-- Display Doubt Sessions for Students -->
+{% for doubt in doubts %}
+    <div>
+        <p>{{ doubt.doubt_message }}</p>
+        {% if doubt.reply %}
+            <p><strong>Reply:</strong> {{ doubt.reply }}</p>
+        {% endif %}
+    </div>
+{% endfor %}
+{% endblock %}

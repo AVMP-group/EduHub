@@ -196,6 +196,14 @@ def student_view_result(request):
     return render(request, "student_template/student_view_result.html", context)
 
 
+# StudentViews.py
+
+def student_doubt_session(request):
+    doubts = DoubtSession.objects.filter(student_id=request.user.id)
+    context = {
+        "doubts": doubts
+    }
+    return render(request, "student_template/student_doubt_session.html", context)
 
 
 

@@ -1,0 +1,9 @@
+<!-- staff_template/doubt_reply_template.html -->
+<form method="post" action="{% url 'staff_doubt_reply' doubt.id %}">
+    {% csrf_token %}
+    <p>Student: {{ doubt.student_id.admin.first_name }} {{ doubt.student_id.admin.last_name }}</p>
+    <p>Doubt: {{ doubt.doubt_message }}</p>
+    <textarea name="doubt_reply" placeholder="Reply to the doubt..."></textarea>
+    <button type="submit">Send Reply</button>
+  </form>
+  

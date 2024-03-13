@@ -82,15 +82,17 @@
             </li>
 
             <li class="nav-item">
-              {% url 'staff_feedback' as staff_feedback %}
-              <a href="{{ staff_feedback }}" class="nav-link {% if request.path == staff_feedback %} active {% endif %}">
-                <i class="nav-icon fas fa-comments"></i>
-                <p>
+              <a class="nav-link" href="{% url 'staff_feedback' %}">
+                  <i class="fa fa-fw fa-comments"></i>
                   Feedback
-                  {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
-                </p>
               </a>
-            </li>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'staff_doubt_session' %}">
+                  <i class="fa fa-fw fa-question-circle"></i>
+                  Doubt Session
+              </a>
+          </li>
 
           </ul>
         </nav>

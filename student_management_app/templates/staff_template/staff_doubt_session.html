@@ -1,0 +1,19 @@
+{% extends 'staff_template/base_template.html' %}
+{% block page_title %}
+    Doubt Session
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+<!-- Display Doubt Sessions for Staff -->
+{% for doubt in doubts %}
+    <div>
+        <p>{{ doubt.doubt_message }}</p>
+        {% if doubt.reply %}
+            <p><strong>Reply:</strong> {{ doubt.reply }}</p>
+        {% endif %}
+        <a href="{% url 'staff_doubt_session_reply' doubt.id %}">Reply</a>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -120,23 +120,23 @@
             </li>
 
 
-<!--            <li class="nav-item">-->
-<!--              {% url 'manage_session' as manage_session %}-->
-<!--              {% url 'edit_session' session_id=id as edit_session %}-->
-<!--              <a href="{{ manage_session }}" class="nav-link {% if request.path == manage_session %} active {% endif %} {% if request.path == edit_session %} active {% endif %}">-->
-<!--                <i class="nav-icon fas fa-graduation-cap"></i>-->
-<!--                <p>-->
-<!--                  Manage Session -->
-<!--                </p>-->
-<!--              </a>-->
-<!--            </li>-->
+            <li class="nav-item">
+              {% url 'manage_session' as manage_session %}
+              {% url 'edit_session' session_id=id as edit_session %}
+             <a href="{{ manage_session }}" class="nav-link {% if request.path == manage_session %} active {% endif %} {% if request.path == edit_session %} active {% endif %}">
+                <i class="nav-icon fas fa-graduation-cap"></i>
+                <p>
+                  Manage Academic Year
+                </p>
+              </a>
+            </li>
 
             <li class="nav-item">
               {% url 'add_session' as add_session %}
               <a href="{{ add_session }}" class="nav-link {% if request.path == add_session %} active {% endif %}">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                  Add Session
+                  Add Academic Year
                 </p>
               </a>
             </li>
@@ -167,7 +167,7 @@
               <a href="{{ staff_feedback_message }}" class="nav-link {% if request.path == staff_feedback_message %} active {% endif %}">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                  Stafff Feedback
+                  Staff Feedback
                 </p>
               </a>
             </li>

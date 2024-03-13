@@ -2,10 +2,17 @@
 from django.urls import path, include
 from . import views
 from .import HodViews, StaffViews, StudentViews
+from . import StaffViews, StudentViews
+
 
 
 urlpatterns = [
+    path('staff_doubt_session/', StaffViews.staff_doubt_session, name="staff_doubt_session"),
+path('staff_doubt_session_reply/<doubt_id>/', StaffViews.staff_doubt_session_reply, name="staff_doubt_session_reply"),
+path('student_doubt_session/', StudentViews.student_doubt_session, name="student_doubt_session"),
     path('', views.loginPage, name="login"),
+
+    
     # path('accounts/', include('django.contrib.auth.urls')),
     path('doLogin/', views.doLogin, name="doLogin"),
     path('get_user_details/', views.get_user_details, name="get_user_details"),

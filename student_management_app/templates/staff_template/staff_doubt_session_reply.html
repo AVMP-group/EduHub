@@ -1,0 +1,12 @@
+{% extends 'staff_template/base_template.html' %}
+{% block page_title %}
+    Doubt Session
+{% endblock page_title %}
+
+<!-- Form for Staff to Reply to Doubt -->
+<form method="post">
+    {% csrf_token %}
+    <textarea name="reply" rows="4" cols="50" placeholder="Reply to doubt"></textarea>
+    <input type="submit" value="Reply">
+</form>
+{% endblock %}

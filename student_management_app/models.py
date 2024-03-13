@@ -151,7 +151,7 @@ class NotificationStudent(models.Model):
 
 class NotificationStaffs(models.Model):
     id = models.AutoField(primary_key=True)
-    stafff_id = models.ForeignKey(Staffs, on_delete=models.CASCADE)
+    staff_id = models.ForeignKey(Staffs, on_delete=models.CASCADE)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -185,6 +185,19 @@ def create_user_profile(sender, instance, created, **kwargs):
             Staffs.objects.create(admin=instance)
         if instance.user_type == 3:
             Students.objects.create(admin=instance, course_id=Courses.objects.get(id=1), session_year_id=SessionYearModel.objects.get(id=1), address="", profile_pic="", gender="")
+
+# models.py
+
+class DoubtSession(models.Model):
+    id = models.AutoField(primary_key=True)
+    staff_id = models.ForeignKey(Staffs, on_delete=models.CASCADE)
+    student_id = models.ForeignKey(Students, on_delete=models.CASCADE)
+    doubt_message = models.TextField()
+    reply = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    objects = models.Manager()
+
 
 
 @receiver(post_save, sender=CustomUser)
