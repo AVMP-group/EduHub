@@ -1,0 +1,134 @@
+{% extends 'hod_template/base_template.html' %}
+
+{% block page_title %}
+    Manage Staff
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content">
+        <div class="container-fluid">
+
+            <a class="btn btn-primary" href="{% url 'add_staff' %}" role="button">+ Add Staff</a> <br/>&nbsp;
+
+            {% if messages %}
+                                <div class="form-group">
+                                <div class="col-12">
+                                    {% for message in messages %}
+                                    {% if message.tags == "error" %}
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% elif message.tags == "success" %}
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                </div>
+                                {% endif %}
+                                
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Staff Details</h3>
+
+                            <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                <div class="input-group-append">
+                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                            <thead>
+                                <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Last Login</th>
+                                <th>Date Joined</th>
+                                <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for staff in staffs %}
+                                <tr>
+                                <td>{{ staff.admin.id }}</td>
+                                <td>{{ staff.admin.first_name }}</td>
+                                <td>{{ staff.admin.last_name }}</td>
+                                <td>{{ staff.admin.username }}</td>
+                                <td>{{ staff.admin.email }}</td>
+                                <td>{{ staff.address }}</td>
+                                <td>{{ staff.admin.last_login }}</td>
+                                <td>{{ staff.admin.date_joined }}</td>
+                                <td>
+                                    <a href="{% url 'edit_staff' staff.admin.id %}" class="btn btn-success">Edit</a> 
+                                    <a href="{% url 'delete_staff' staff.admin.id %}" class="btn btn-danger">Delete</a>
+                                     <div class="modal" id="myModal{{student.id}}" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h3 style="color: #ff007b" class="modal-title">Student: {{ student.first_name }} {{ student.last_name }}</h3>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true"></span>
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <ul class="list-unstyled">
+                                            <li style="color: #ff6600;">Batch No: <strong style="color: #000000;">{{ staff.batch_no }}</strong></li>
+                                            <li style="color: #ff6600;">Student Pin: <strong style="color: #000000;">{{ staff.student_pin }}</strong></li>
+                                            <li style="color: #ff6600;">Name: <strong style="color: #000000;">{{ staff.first_name }} {{ student.last_name }}</strong></li>
+                                            <li style="color: #ff6600;">age: <strong style="color: #000000;">{{ staff.age }}</strong></li>
+                                            <li style="color: #ff6600;">Email: <strong style="color: #000000;">{{ staff.email }}</strong></li>
+                                            <li style="color: #ff6600;">Phone No: <strong style="color: #000000;">{{ staff.mobile }}</strong></li>
+                                            <li style="color: #ff6600;">Course: <strong style="color: #000000;">{{ staff.course }}</strong></li>
+                                            <li style="color: #ff6600;">CGPA: <strong style="color: #000000;">{{ staff.cgpa }}</strong></li>
+                                            <li style="color: #ff6600;">College: <strong style="color: #000000;">{{ staff.college }}</strong></li>
+                                            </ul>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </td>
+                                </tr>
+                                {% endfor %}
+                                
+                            </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                        </div>
+                    <!-- /.card -->
+
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+      </section>
+
+  {% endblock main_content %}
