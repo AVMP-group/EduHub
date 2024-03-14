@@ -6,13 +6,7 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
-# StaffViews.py
 from .models import DoubtSession  # Import DoubtSession model
-
-# Your other import statements
-
-
-
 from student_management_app.models import CustomUser, Staffs, Courses, Subjects, Students, SessionYearModel, Attendance, AttendanceReport, LeaveReportStaff, FeedBackStaffs, StudentResult
 
 
@@ -359,7 +353,7 @@ def staff_add_result_save(request):
             messages.error(request, "Failed to Add Result!")
             return redirect('staff_add_result')
 
-# StaffViews.py
+# StaffViews.doubt session
 
 def staff_doubt_session(request):
     doubts = DoubtSession.objects.filter(staff_id=request.user.id)
@@ -369,7 +363,7 @@ def staff_doubt_session(request):
     return render(request, "staff_template/staff_doubt_session.html", context)
 
 
-def staff_doubt_session_reply(request, doubt_id):
+def staff_doubt_session_reply(request,doubt_id):
     if request.method == "POST":
         doubt = DoubtSession.objects.get(id=doubt_id)
         doubt.reply = request.POST.get('reply')

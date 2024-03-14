@@ -29,7 +29,7 @@
             <li class="nav-item">
               {% url 'student_home' as student_home %}
               <a href="{{ student_home }}" class="nav-link {% if request.path == student_home %} active {% endif %}">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <i class="nav-icon fas fa-home"></i>
                 <p>
                   Home
                   {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
@@ -80,7 +80,15 @@
                 </p>
               </a>
             </li>
-
+            <li class="nav-item">
+              <a href="{{ student_doubt_session }}" class="nav-link {% if request.path == staff_doubt_session %} active {% endif %}">
+                  <i class="fa fa-fw fa-question-circle"></i>
+                 <p>
+                  Doubt Session
+                  {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
+                </p>
+              </a>
+          </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

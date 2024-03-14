@@ -8,8 +8,9 @@ from . import StaffViews, StudentViews
 
 urlpatterns = [
     path('staff_doubt_session/', StaffViews.staff_doubt_session, name="staff_doubt_session"),
-path('staff_doubt_session_reply/<doubt_id>/', StaffViews.staff_doubt_session_reply, name="staff_doubt_session_reply"),
-path('student_doubt_session/', StudentViews.student_doubt_session, name="student_doubt_session"),
+    path('staff_doubt_session_reply/<doubt_id>/', StaffViews.staff_doubt_session_reply, name="staff_doubt_session_reply"),
+    path('student_doubt_session/', StudentViews.student_doubt_session, name="student_doubt_session"),
+    
     path('', views.loginPage, name="login"),
 
     
