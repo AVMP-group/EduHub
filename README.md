@@ -1,8 +1,7 @@
-# Django Student Management System (beta)
+# EduHub (beta)
 This is a Simple Student Management System Developed for Educational Purpose using Python (Django).
 Feel free to make changes based on your requirements.
 
-[Project Demo on YouTube](https://www.youtube.com/watch?v=kArCR96m7uo "Django Student Management System Demo")
 
 I've created this project while learnging Django and followed tutorial series from **SuperCoders**
 
@@ -41,13 +40,6 @@ And if you like this project then ADD a STAR ⭐️  to this project 👆
 2. Add a Star 🌟  to this 👆 Repository
 
 
-## Donate
-
-**[PayPal](https://bit.ly/support-vijay-thapa)**
-
-**[Buy me a Coffee  ☕️](https://www.buymeacoffee.com/vijaythapa)**
-
-**Donate by wire transfer:** E-Mail at *donate@vijaythapa.com* for wire transfer details. 
 
 
 ## How to Install and Run this project?
@@ -157,8 +149,4 @@ Email: student@gmail.com
 Password: student
 
 
-
-## For Sponsor or Projects Enquiry
-1. Email - hi@vijaythapa.com
-2. LinkedIn - [vijaythapa](https://www.linkedin.com/in/vijaythapa "Vijay Thapa on LinkedIn")
 
